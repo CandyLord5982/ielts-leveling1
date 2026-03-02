@@ -660,6 +660,12 @@ const ExerciseList = () => {
           {...props}
         />
       ),
+      speaking_assessment: (props) => (
+        <IconImg
+          src={assetUrl('/icon/exercise_type/fill_blank.svg')}
+          {...props}
+        />
+      ),
     };
     return icons[exerciseType] || ((props) => <BookOpen {...props} />);
   };
@@ -671,6 +677,7 @@ const ExerciseList = () => {
       multiple_choice: "text-orange-600 bg-orange-100",
       dropdown: "text-indigo-600 bg-indigo-100",
       image_hotspot: "text-cyan-600 bg-cyan-100",
+      speaking_assessment: "text-purple-600 bg-purple-100",
     };
     return colors[exerciseType] || "text-gray-600 bg-gray-100";
   };
@@ -768,6 +775,7 @@ const ExerciseList = () => {
       ai_fill_blank: "/study/ai-fill-blank",
       pronunciation: "/study/pronunciation",
       image_hotspot: "/study/image-hotspot",
+      speaking_assessment: "/study/speaking-assessment",
     };
 
     const basePath = paths[exercise.exercise_type] || "/study/flashcard";

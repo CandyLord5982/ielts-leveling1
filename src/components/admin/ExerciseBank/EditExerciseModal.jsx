@@ -9,6 +9,7 @@ import AIFillBlankEditor from '../editors/AIFillBlankEditor'
 import SimpleDropdownEditor from '../editors/SimpleDropdownEditor'
 import PronunciationEditor from '../editors/PronunciationEditor'
 import ImageHotspotEditor from '../editors/ImageHotspotEditor'
+import SpeakingAssessmentEditor from '../editors/SpeakingAssessmentEditor'
 
 const EditExerciseModal = ({ isOpen, onClose, exercise, onUpdate }) => {
   const [formData, setFormData] = useState({
@@ -218,6 +219,13 @@ const EditExerciseModal = ({ isOpen, onClose, exercise, onUpdate }) => {
             onContentChange={(newContent) => handleContentChange(newContent)}
           />
         )
+      case 'speaking_assessment':
+        return (
+          <SpeakingAssessmentEditor
+            questions={content.questions || []}
+            onQuestionsChange={(questions) => handleContentChange({ ...content, questions })}
+          />
+        )
       default:
         return (
           <div className="text-center py-8 text-gray-500">
@@ -287,6 +295,7 @@ const EditExerciseModal = ({ isOpen, onClose, exercise, onUpdate }) => {
                   <option value="ai_fill_blank">AI Fill Blank</option>
                   <option value="pronunciation">Pronunciation</option>
                   <option value="image_hotspot">Image Hotspot</option>
+                  <option value="speaking_assessment">Speaking Assessment</option>
                 </select>
                 <p className="text-xs text-gray-500 mt-1">Exercise type cannot be changed after creation</p>
               </div>

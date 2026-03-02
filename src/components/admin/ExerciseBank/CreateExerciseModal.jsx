@@ -9,6 +9,7 @@ import AIFillBlankEditor from '../editors/AIFillBlankEditor'
 import SimpleDropdownEditor from '../editors/SimpleDropdownEditor'
 import PronunciationEditor from '../editors/PronunciationEditor'
 import ImageHotspotEditor from '../editors/ImageHotspotEditor'
+import SpeakingAssessmentEditor from '../editors/SpeakingAssessmentEditor'
 
 const CreateExerciseModal = ({ folders, selectedFolder, onClose, onCreated }) => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,8 @@ const CreateExerciseModal = ({ folders, selectedFolder, onClose, onCreated }) =>
     { value: 'drag_drop', label: 'Drag & Drop', icon: Copy },
     { value: 'dropdown', label: 'Dropdown', icon: ChevronDown },
     { value: 'ai_fill_blank', label: 'Fill in AI Score', icon: Brain },
-    { value: 'image_hotspot', label: 'Image Hotspot', icon: Image }
+    { value: 'image_hotspot', label: 'Image Hotspot', icon: Image },
+    { value: 'speaking_assessment', label: 'Speaking Assessment', icon: Mic }
   ]
 
   const handleSubmit = async (e) => {
@@ -327,6 +329,13 @@ const CreateExerciseModal = ({ folders, selectedFolder, onClose, onCreated }) =>
               <ImageHotspotEditor
                 content={formData.content}
                 onContentChange={(content) => setFormData({ ...formData, content })}
+              />
+            )}
+
+            {formData.exercise_type === 'speaking_assessment' && (
+              <SpeakingAssessmentEditor
+                questions={formData.content.questions || []}
+                onQuestionsChange={(questions) => handleContentChange('questions', questions)}
               />
             )}
           </div>

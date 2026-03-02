@@ -11,6 +11,7 @@ import AIFillBlankExercise from '../exercises/AIFillBlankExercise'
 import DropdownExercise from '../exercises/DropdownExercise'
 import PronunciationExercise from '../exercises/PronunciationExercise'
 import ImageHotspotExercise from '../exercises/ImageHotspotExercise'
+import SpeakingAssessmentExercise from '../exercises/SpeakingAssessmentExercise'
 import TestRunner from '../test/TestRunner'
 
 const StudyModule = () => {
@@ -43,6 +44,7 @@ const StudyModule = () => {
       <Route path="dropdown" element={<DropdownExercise />} />
       <Route path="pronunciation" element={<PronunciationExercise />} />
       <Route path="image-hotspot" element={<ImageHotspotExercise />} />
+      <Route path="speaking-assessment" element={<SpeakingAssessmentExercise />} />
     </Routes>
   )
 }
